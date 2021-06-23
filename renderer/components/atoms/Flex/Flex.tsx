@@ -9,7 +9,7 @@ interface IFlexProps extends BoxProps {
 const Flex = styled(({ direction, gap, ...boxProps }) => <Box {...boxProps} />)(
   {
     display: "flex",
-    gap: ({ gap = "16px" }: IFlexProps) => gap,
+    gap: ({ gap = "0px" }: IFlexProps) => gap,
     flexDirection: ({ direction = "row" }: IFlexProps) => direction,
   }
 );
