@@ -1,12 +1,12 @@
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
 import SectionLayout from "components/templates/SectionLayout";
 import Flex from "components/atoms/Flex";
 import Grid from "components/atoms/Grid";
 import { HeaderContainer } from "components/atoms/Sales";
 import NewSaleForm from "components/organisms/NewSaleForm";
 import CartProductsTable from "components/organisms/CartProductsTable";
+import CartResumeCard from "components/organisms/CartResumeCard";
 
 const Sales = () => (
   <SectionLayout>
@@ -27,7 +27,7 @@ const Sales = () => (
           <NewSaleForm />
           <CartProductsTable />
         </Flex>
-        <Box>resume</Box>
+        <CartResumeCard />
       </Grid>
     </Flex>
   </SectionLayout>
