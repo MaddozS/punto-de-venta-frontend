@@ -11,6 +11,7 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "electron-serve": "^1.1.0",
     "electron-store": "^7.0.2"
   },
