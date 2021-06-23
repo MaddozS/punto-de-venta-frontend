@@ -7,19 +7,11 @@ import { HeaderContainer } from "components/atoms/Sales";
 import NewSaleForm from "components/organisms/NewSaleForm";
 import CartProductsTable from "components/organisms/CartProductsTable";
 import CartResumeCard from "components/organisms/CartResumeCard";
+import SalesHeader from "components/organisms/SalesHeader";
 
 const Sales = () => (
   <SectionLayout>
-    <HeaderContainer>
-      <Typography variant="h5">Ventas</Typography>
-      <Flex gap="16px">
-        <Button variant="outlined">Generar Utilidad</Button>
-        <Flex gap="8px" alignItems="center">
-          <Typography variant="body1">Vendido hoy:</Typography>
-          <Typography variant="h5">$717.50</Typography>
-        </Flex>
-      </Flex>
-    </HeaderContainer>
+    <SalesHeader />
     <Flex gap="32px" direction="column">
       <Typography variant="subtitle2">Nueva Venta</Typography>
       <Grid gridTemplateColumns="65% auto" gap="64px">
