@@ -53,7 +53,7 @@ const CartProductsTable = () => {
     <Grid gap="16px">
       <Typography variant="subtitle2">Carrito</Typography>
       <TableContainer component={Paper}>
-        <Table aria-label="simple table">
+        <Table aria-label="cart table">
           <TableHead>
             <TableRow>
               <TableCell>Nombre</TableCell>
