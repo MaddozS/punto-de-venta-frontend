@@ -47,3 +47,4 @@ const Table = ({ columns, data, ariaLabel }: ITable) => (
 );
 
 export default Table;
+export type { ITableColumn };
