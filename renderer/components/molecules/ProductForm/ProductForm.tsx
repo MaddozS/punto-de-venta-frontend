@@ -4,6 +4,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import Flex from "components/atoms/Flex";
+import { toast } from "react-toastify";
 
 interface IProductFormValues {
   name: string;
@@ -17,9 +18,40 @@ interface IValidateFormValues {
   description?: string;
 }
 
-const ProductForm = () => {
-  const onSubmit = (values: IProductFormValues) => {
-    console.log({ values });
+const validateFormValues = (values: IProductFormValues) => {
+  const errors: Partial<IValidateFormValues> = {};
+  if (!values.name) {
+    errors.name = "El nombre es requerido";
+  }
+  if (!values.price) {
+    errors.price = "El número es requerido";
+  } else if (isNaN(values.price)) {
+    errors.price = "Introduce un número válido";
+  }
+  return errors;
+};
+
+interface IProductForm {
+  onSubmit: (values: IProductFormValues) => Promise<void>;
+  onCancel: () => void;
+  submitButtonLabel?: string;
+  successMessage?: string;
+}
+
+const ProductForm = ({
+  onSubmit,
+  onCancel,
+  submitButtonLabel = "Crear Producto",
+  successMessage = "Se ha creado el producto exitosamente",
+}: IProductForm) => {
+  const onSubmitForm = async (values: IProductFormValues) => {
+    try {
+      await onSubmit(values);
+      toast.success(successMessage);
+      onCancel();
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (
@@ -29,21 +61,10 @@ const ProductForm = () => {
         description: "",
         price: undefined,
       }}
-      validate={(values) => {
-        const errors: Partial<IValidateFormValues> = {};
-        if (!values.name) {
-          errors.name = "El nombre es requerido";
-        }
-        if (!values.price) {
-          errors.price = "El número es requerido";
-        } else if (isNaN(values.price)) {
-          errors.price = "Introduce un número válido";
-        }
-        return errors;
-      }}
-      onSubmit={onSubmit}
+      validate={validateFormValues}
+      onSubmit={onSubmitForm}
     >
-      {({ submitForm, errors }) => (
+      {({ isSubmitting }) => (
         <Form>
           <Flex
             direction="column"
@@ -86,11 +107,21 @@ const ProductForm = () => {
               </Flex>
             </Flex>
             <Flex justifyContent="flex-end" gap="16px">
-              <Button variant="outlined" type="button">
+              <Button
+                variant="outlined"
+                type="button"
+                disabled={isSubmitting}
+                onClick={onCancel}
+              >
                 Cancelar
               </Button>
-              <Button color="primary" variant="contained" type="submit">
-                Agregar Producto
+              <Button
+                color="primary"
+                variant="contained"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {submitButtonLabel}
               </Button>
             </Flex>
           </Flex>
@@ -100,4 +131,5 @@ const ProductForm = () => {
   );
 };
 
+export type { IProductFormValues };
 export default ProductForm;
