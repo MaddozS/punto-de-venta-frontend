@@ -28,6 +28,9 @@ const validateFormValues = (values: IProductFormValues) => {
   } else if (isNaN(values.price)) {
     errors.price = "Introduce un número válido";
   }
+  if (!values.description) {
+    errors.description = "La descripción es requerida";
+  }
   return errors;
 };
 
@@ -98,7 +101,7 @@ const ProductForm = ({
                   }}
                 />
                 <Field
-                  label="Descripción"
+                  label="Descripción *"
                   name="description"
                   multiline
                   rows={6}
