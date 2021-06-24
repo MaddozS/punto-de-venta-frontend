@@ -7,7 +7,7 @@ import NewProductForm from "components/organisms/NewProductForm";
 import Modal from "components/molecules/Modal";
 import Flex from "components/atoms/Flex";
 import Grid from "components/atoms/Grid";
-import useDisclosure from "hooks/useDisclosure";
+import { useDisclosure } from "hooks/common";
 import ERoutes from "shared/constants/routes";
 
 const Products = () => {
