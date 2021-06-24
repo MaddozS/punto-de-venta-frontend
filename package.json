@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@material-ui/lab": "^4.0.0-alpha.58",
+    "axios": "^0.21.1",
     "dinero.js": "^1.8.1",
     "electron-serve": "^1.1.0",
     "electron-store": "^7.0.2"
