@@ -1,25 +1,7 @@
 import Table, { ITableColumn } from "components/molecules/Table";
+import useProductsProvider from "hooks/products";
 import formatMoney from "utils/formatMoney";
 import type { IProduct } from "shared/types/product";
-
-// TODO get this data from products context
-const products: IProduct[] = [
-  {
-    _id: "exampleid1",
-    name: "Frozen yoghurt",
-    price: 20,
-  },
-  {
-    _id: "exampleid2",
-    name: "Ice cream sandwich",
-    price: 15,
-  },
-  {
-    _id: "exampleid3",
-    name: "Cupcake",
-    price: 10,
-  },
-];
 
 interface IProductTableRow {
   id: string;
@@ -53,6 +35,8 @@ const productsTableColumns: ITableColumn[] = [
 ];
 
 const ProductsTable = () => {
+  const { products, loadingProducts, errorLoadingProducts } =
+    useProductsProvider();
   const productsTableData = parseProducts(products);
 
   return (
@@ -60,6 +44,8 @@ const ProductsTable = () => {
       ariaLabel="Tabla de productos"
       columns={productsTableColumns}
       data={productsTableData}
+      loading={loadingProducts}
+      error={errorLoadingProducts}
     />
   );
 };
