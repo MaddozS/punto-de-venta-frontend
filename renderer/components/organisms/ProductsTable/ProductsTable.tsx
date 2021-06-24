@@ -1,9 +1,4 @@
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import Flex from "components/atoms/Flex";
-import Grid from "components/atoms/Grid";
 import Table, { ITableColumn } from "components/molecules/Table";
-import useDisclosure from "hooks/useDisclosure";
 import formatMoney from "utils/formatMoney";
 import type { IProduct } from "shared/types/product";
 
@@ -58,24 +53,14 @@ const productsTableColumns: ITableColumn[] = [
 ];
 
 const ProductsTable = () => {
-  const { isOpen: newProductFormIsOpen, onToggle: toggleNewProductForm } =
-    useDisclosure();
   const productsTableData = parseProducts(products);
 
   return (
-    <Grid gap="32px">
-      <Flex justifyContent="space-between" alignItems="center">
-        <Typography variant="subtitle2">Lista de productos</Typography>
-        <Button variant="contained" color="primary">
-          Nuevo Producto
-        </Button>
-      </Flex>
-      <Table
-        ariaLabel="Tabla de productos"
-        columns={productsTableColumns}
-        data={productsTableData}
-      />
-    </Grid>
+    <Table
+      ariaLabel="Tabla de productos"
+      columns={productsTableColumns}
+      data={productsTableData}
+    />
   );
 };
 
