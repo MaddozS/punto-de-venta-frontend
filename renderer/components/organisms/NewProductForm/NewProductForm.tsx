@@ -1,17 +1,16 @@
 import ProductForm, {
   IProductFormValues,
 } from "components/molecules/ProductForm";
+import useProductsProvider from "hooks/products";
 
 interface INewProductForm {
   onCancel: () => void;
 }
 
 const NewProductForm = (props: INewProductForm) => {
-  const onSubmit = async (values: IProductFormValues) => {
-    console.log({ values });
-  };
+  const { createProduct } = useProductsProvider();
 
-  return <ProductForm onSubmit={onSubmit} {...props} />;
+  return <ProductForm onSubmit={createProduct} {...props} />;
 };
 
 export default NewProductForm;
