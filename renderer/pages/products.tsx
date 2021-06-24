@@ -8,6 +8,7 @@ import Modal from "components/molecules/Modal";
 import Flex from "components/atoms/Flex";
 import Grid from "components/atoms/Grid";
 import useDisclosure from "hooks/useDisclosure";
+import ERoutes from "shared/constants/routes";
 
 const Products = () => {
   const { isOpen: newProductFormIsOpen, onToggle: toggleNewProductForm } =
@@ -15,7 +16,7 @@ const Products = () => {
 
   return (
     <>
-      <MainLayout>
+      <MainLayout active={ERoutes.PRODUCTS}>
         <SectionLayout>
           <Typography variant="h5">Productos</Typography>
           <Grid gap="32px">

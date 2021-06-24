@@ -3,15 +3,13 @@ import { styled } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Grid from "components/atoms/Grid";
 import Flex from "components/atoms/Flex";
 import Link from "components/atoms/Link";
+import ERoutes from "shared/constants/routes";
 
-// padding="64px 32px"
 const Container = styled(Grid)({
   height: "100vh",
   gridTemplateColumns: "auto 1fr",
@@ -30,24 +28,28 @@ const ItemText = styled(ListItemText)({
 const menuItems = [
   {
     label: "Ventas",
-    href: "/home",
+    href: ERoutes.SALES,
   },
   {
     label: "Productos",
-    href: "/products",
+    href: ERoutes.PRODUCTS,
   },
 ];
 
-const MainLayout: FC = ({ children }) => (
+interface IMainLayout {
+  active?: ERoutes;
+}
+
+const MainLayout: FC<IMainLayout> = ({ children, active = ERoutes.SALES }) => (
   <Container>
     <Flex direction="column" borderRight="thin gray solid">
       <Box padding="64px 32px">
         <Typography variant="h5">Tiendita</Typography>
       </Box>
       <List>
-        {menuItems.map(({ label, href }, index) => (
+        {menuItems.map(({ label, href }) => (
           <Link key={label} href={href} underline="none" color="textPrimary">
-            <ListItem button>
+            <ListItem button selected={href === active}>
               <ItemText primary={label} />
             </ListItem>
           </Link>
