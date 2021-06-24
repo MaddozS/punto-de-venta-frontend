@@ -23,9 +23,21 @@ const Overlay = styled(({ maxWidth, maxHeight, ...paperProps }: IOverlay) => (
   width: "90vw",
 });
 
-const Modal: FC<MuiModalProp> = ({ children, ...modalProps }) => (
+const Modal: FC<MuiModalProp & IOverlay> = ({
+  children,
+  maxWidth,
+  maxHeight,
+  padding,
+  ...modalProps
+}) => (
   <MuiModal {...modalProps}>
-    <Overlay elevation={0} variant="outlined">
+    <Overlay
+      elevation={0}
+      variant="outlined"
+      maxWidth={maxWidth}
+      maxHeight={maxHeight}
+      padding={padding}
+    >
       {children}
     </Overlay>
   </MuiModal>
