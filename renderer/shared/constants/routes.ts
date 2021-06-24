@@ -1,6 +1,6 @@
-const routes = {
-  sales: "/",
-  products: "/",
-};
+enum ERoutes {
+  SALES = "/home",
+  PRODUCTS = "/products",
+}
 
-export default routes;
+export default ERoutes;
