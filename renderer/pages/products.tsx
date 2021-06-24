@@ -34,7 +34,7 @@ const Products = () => {
         open={newProductFormIsOpen}
         onClose={toggleNewProductForm}
         maxWidth="450px"
-        maxHeight="600px"
+        maxHeight="550px"
       >
         <NewProductForm />
       </Modal>
