@@ -43,7 +43,7 @@ const Products = () => {
         maxWidth="450px"
         maxHeight="550px"
       >
-        <NewProductForm />
+        <NewProductForm onCancel={toggleNewProductForm} />
       </Modal>
     </>
   );
