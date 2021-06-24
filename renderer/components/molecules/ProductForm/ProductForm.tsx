@@ -50,6 +50,7 @@ const ProductForm = ({
       toast.success(successMessage);
       onCancel();
     } catch (error) {
+      console.log({ error });
       toast.error(error.message);
     }
   };

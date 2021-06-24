@@ -6,7 +6,7 @@ const { apiUrl } = environment;
 
 const createProduct = async (body: ICreateProduct) => {
   const axiosResponse = await axios.post<IProduct>(`${apiUrl}/products`, {
-    body,
+    ...body,
   });
   return axiosResponse.data;
 };

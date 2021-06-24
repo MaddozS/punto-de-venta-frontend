@@ -1,6 +1,4 @@
-import ProductForm, {
-  IProductFormValues,
-} from "components/molecules/ProductForm";
+import ProductForm from "components/molecules/ProductForm";
 import useProductsProvider from "hooks/products";
 
 interface INewProductForm {

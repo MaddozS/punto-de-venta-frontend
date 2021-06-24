@@ -16,27 +16,25 @@ const Products = () => {
     useDisclosure();
 
   return (
-    <>
-      <ProductsProvider>
-        <MainLayout active={ERoutes.PRODUCTS}>
-          <SectionLayout>
-            <Typography variant="h5">Productos</Typography>
-            <Grid gap="32px">
-              <Flex justifyContent="space-between" alignItems="center">
-                <Typography variant="subtitle2">Lista de productos</Typography>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={toggleNewProductForm}
-                >
-                  Nuevo Producto
-                </Button>
-              </Flex>
-              <ProductsTable />
-            </Grid>
-          </SectionLayout>
-        </MainLayout>
-      </ProductsProvider>
+    <ProductsProvider>
+      <MainLayout active={ERoutes.PRODUCTS}>
+        <SectionLayout>
+          <Typography variant="h5">Productos</Typography>
+          <Grid gap="32px">
+            <Flex justifyContent="space-between" alignItems="center">
+              <Typography variant="subtitle2">Lista de productos</Typography>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={toggleNewProductForm}
+              >
+                Nuevo Producto
+              </Button>
+            </Flex>
+            <ProductsTable />
+          </Grid>
+        </SectionLayout>
+      </MainLayout>
       <Modal
         open={newProductFormIsOpen}
         onClose={toggleNewProductForm}
@@ -45,7 +43,7 @@ const Products = () => {
       >
         <NewProductForm onCancel={toggleNewProductForm} />
       </Modal>
-    </>
+    </ProductsProvider>
   );
 };
 
