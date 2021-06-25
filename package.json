@@ -8,16 +8,23 @@
   "scripts": {
     "dev": "nextron",
     "build": "nextron build",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "test": "npm run jest",
+    "jest": "SET NODE_ENV=test jest -c tests/jest.config.js"
   },
   "dependencies": {
+    "@jest-runner/electron": "^3.0.1",
     "@material-ui/lab": "^4.0.0-alpha.58",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
     "axios": "^0.21.1",
+    "babel-jest": "^27.0.5",
     "dinero.js": "^1.8.1",
     "electron-serve": "^1.1.0",
     "electron-store": "^7.0.2",
     "formik": "^2.2.9",
     "formik-material-ui": "^3.0.1",
+    "jest": "^27.0.5",
     "react-if": "^4.0.1",
     "react-toastify": "^7.0.4"
   },
