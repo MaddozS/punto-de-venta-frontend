@@ -7,7 +7,7 @@ import type { AppProps } from "next/app";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
-export default function (props: AppProps) {
+export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
   React.useEffect(() => {
