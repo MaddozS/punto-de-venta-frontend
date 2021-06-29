@@ -34,6 +34,10 @@ const menuItems = [
     label: "Productos",
     href: ERoutes.PRODUCTS,
   },
+  {
+    label: "Inventario",
+    href: ERoutes.INVENTORY,
+  },
 ];
 
 interface IMainLayout {
