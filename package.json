@@ -1,14 +1,21 @@
 {
   "private": true,
-  "name": "my-nextron-app",
-  "description": "My application description",
+  "name": "tiendiapp",
+  "description": "La mejor manera de vender",
   "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "author": "BlueYou",
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
     "build": "nextron build",
-    "postinstall": "electron-builder install-app-deps"
+    "build:win64": "nextron build --win --x64",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.blueyou.tiendiapp",
+    "productName": "Tiendiapp"
   },
   "dependencies": {
     "@material-ui/lab": "^4.0.0-alpha.58",
