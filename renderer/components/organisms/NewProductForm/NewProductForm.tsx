@@ -1,6 +1,14 @@
 import ProductForm from "components/molecules/ProductForm";
+import useProductsProvider from "hooks/products";
 
-// TODO add logic
-const NewProductForm = () => <ProductForm />;
+interface INewProductForm {
+  onCancel: () => void;
+}
+
+const NewProductForm = (props: INewProductForm) => {
+  const { createProduct } = useProductsProvider();
+
+  return <ProductForm onSubmit={createProduct} {...props} />;
+};
 
 export default NewProductForm;

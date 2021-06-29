@@ -17,4 +17,4 @@ const useDisclosure = () => {
   };
 };
 
-export default useDisclosure;
+export { useDisclosure };
