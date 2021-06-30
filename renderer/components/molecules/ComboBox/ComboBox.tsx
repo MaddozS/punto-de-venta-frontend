@@ -3,7 +3,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 
 type ToDefineComboBoxEvent = any;
 
-type TComboBoxValue = string | null;
+type TComboBoxValue = any;
 
 interface IComboBox {
   options?: unknown[];
