@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { IInventory } from "shared/types/inventory";
+import type { IInventory, ICreateInventory } from "shared/types/inventory";
 import type { IProduct } from "shared/types/product";
 
 interface IInventoryContext {
@@ -7,6 +7,7 @@ interface IInventoryContext {
   loadingInventory: boolean;
   errorLoadingInventory: boolean;
   products: IProduct[];
+  modifyInventory: (body: ICreateInventory) => Promise<void>;
 }
 
 const InventoryContext = createContext<IInventoryContext | undefined>(

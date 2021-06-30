@@ -41,18 +41,25 @@ interface IProductForm {
 }
 
 const InventoryForm = ({ onCancel }: IProductForm) => {
-  const { products } = useInventoryProvider();
+  const { products, modifyInventory } = useInventoryProvider();
   const [selectedProduct, setSelectedProduct] = useState<IProduct | undefined>(
     undefined
   );
 
-  const onSubmitForm = async (values: IProductFormValues) => {
+  const onSubmitForm = async ({
+    available,
+    recommended,
+  }: IProductFormValues) => {
     if (!selectedProduct) {
       toast.error("Debes seleccionar un producto");
       return;
     }
     try {
-      // await onSubmit(values);
+      await modifyInventory({
+        product: selectedProduct._id,
+        stock: available,
+        minStockRecommended: recommended,
+      });
       toast.success("Se han guardado los cambios en el inventario.");
       onCancel();
     } catch (error) {

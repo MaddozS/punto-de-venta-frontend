@@ -1,5 +1,5 @@
 interface ICreateInventory {
-  product: number;
+  product: string;
   stock: number;
   minStockRecommended: number;
 }
